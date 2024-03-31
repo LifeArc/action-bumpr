@@ -10,6 +10,7 @@ RUN wget -O - -q https://raw.githubusercontent.com/haya14busa/bump/master/instal
 COPY entrypoint.sh /entrypoint.sh
 
 # set the runtime user to a non-root user and the same user as used by the github runners for actions runs.
-USER 1000
+# In some runners, default user `runner` has UID 1000 not 10001
+# USER 1001
 
 ENTRYPOINT ["/entrypoint.sh"]
